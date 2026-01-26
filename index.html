@@ -2,75 +2,98 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>My Recommended Products</title>
+<title>Best Products I Recommend | Honest Picks</title>
+
+<meta name="description" content="Discover handpicked products for study, desk setup, and daily productivity. Honest recommendations with real value.">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root {
-  --primary: #ff9900;
-  --dark: #1f2933;
-  --light: #f5f7fa;
-  --card: #ffffff;
+  --brand-primary: #ff9900;
+  --brand-dark: #1f2933;
+  --brand-bg: #f4f6f8;
+  --brand-accent: #2563eb;
+  --card-bg: #ffffff;
 }
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
 body {
   margin: 0;
   font-family: 'Segoe UI', sans-serif;
-  background: linear-gradient(135deg, #eef2f7, #ffffff);
-  color: var(--dark);
+  background: var(--brand-bg);
+  color: var(--brand-dark);
 }
 
 /* HERO */
 .hero {
-  padding: 60px 20px;
+  padding: 70px 20px 50px;
   text-align: center;
-  animation: fadeIn 1s ease-in-out;
 }
 
 .hero h1 {
-  font-size: 2.4rem;
-  margin-bottom: 10px;
+  font-size: 2.5rem;
+  margin-bottom: 12px;
 }
 
 .hero p {
-  font-size: 1.1rem;
-  max-width: 600px;
+  max-width: 650px;
   margin: auto;
+  font-size: 1.1rem;
   opacity: 0.85;
+}
+
+/* FILTERS */
+.filters {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.filter-btn {
+  padding: 8px 16px;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  background: #e5e7eb;
+  font-weight: 600;
+}
+
+.filter-btn.active,
+.filter-btn:hover {
+  background: var(--brand-accent);
+  color: #fff;
 }
 
 /* CONTAINER */
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: auto;
-  padding: 20px;
+  padding: 30px 20px;
 }
 
-/* PRODUCT GRID */
+/* PRODUCTS */
 .products {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 25px;
-  margin-top: 40px;
+  gap: 28px;
 }
 
 /* PRODUCT CARD */
 .product {
-  background: var(--card);
+  background: var(--card-bg);
   border-radius: 18px;
   padding: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  animation: slideUp 0.8s ease;
 }
 
 .product:hover {
   transform: translateY(-6px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.12);
+  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
 }
 
 .product img {
@@ -78,6 +101,22 @@ body {
   height: 200px;
   object-fit: contain;
   border-radius: 12px;
+}
+
+/* TOP PICK BADGE */
+.badge {
+  position: absolute;
+  background: gold;
+  color: #000;
+  padding: 6px 10px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  border-radius: 6px;
+  margin: 8px;
+}
+
+.product-wrapper {
+  position: relative;
 }
 
 .product h2 {
@@ -95,77 +134,82 @@ body {
   display: inline-block;
   margin-top: 12px;
   padding: 12px 18px;
-  background: var(--primary);
+  background: var(--brand-primary);
   color: #000;
   text-decoration: none;
-  font-weight: 600;
+  font-weight: 700;
   border-radius: 8px;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.btn:hover {
-  background: #ffb340;
-  transform: scale(1.04);
 }
 
 /* FOOTER */
 footer {
-  margin-top: 60px;
-  padding: 25px;
-  background: #ffffff;
+  padding: 30px 20px;
   text-align: center;
   font-size: 0.85rem;
   opacity: 0.75;
 }
 
-/* ANIMATIONS */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(15px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideUp {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
+/* HIDE */
+.hidden { display: none; }
 </style>
 </head>
 
 <body>
 
 <section class="hero">
-  <h1>Curated Products That Actually Make Life Easier</h1>
+  <h1>Handpicked Products That Are Actually Worth It</h1>
   <p>
-    I research, compare, and shortlist useful products so you don’t waste time or money.
+    Study essentials, desk setup tools, and productivity gadgets — curated honestly to save you time and money.
   </p>
+
+  <div class="filters">
+    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
+    <button class="filter-btn" onclick="filterProducts('desk')">Desk Setup</button>
+    <button class="filter-btn" onclick="filterProducts('study')">Study Essentials</button>
+    <button class="filter-btn" onclick="filterProducts('gadgets')">Gadgets</button>
+  </div>
 </section>
 
 <div class="container">
   <div class="products">
 
-    <!-- PRODUCT CARD -->
-    <div class="product">
-      <img src="IMAGE_URL_HERE" alt="Product">
-      <h2>Product Name Here</h2>
-      <p>
-        Short, honest explanation of what this product does and who it’s best for.
-      </p>
-      <a class="btn" href="AMAZON_LINK_HERE" target="_blank">
-        View on Amazon
-      </a>
+    <!-- PRODUCT -->
+    <div class="product-wrapper product-item desk">
+      <div class="badge">Top Pick</div>
+      <div class="product">
+        <img src="IMAGE_URL_HERE">
+        <h2>Desk Lamp for Study</h2>
+        <p>Reduces eye strain during long night study sessions. Ideal for students and work desks.</p>
+        <a class="btn" href="AMAZON_LINK_HERE" target="_blank">View on Amazon</a>
+      </div>
     </div>
 
-    <!-- COPY THIS CARD TO ADD MORE PRODUCTS -->
+    <!-- PRODUCT -->
+    <div class="product-wrapper product-item study">
+      <div class="product">
+        <img src="IMAGE_URL_HERE">
+        <h2>Notebook for Productivity</h2>
+        <p>Minimal design notebook for focused planning and daily goals.</p>
+        <a class="btn" href="AMAZON_LINK_HERE" target="_blank">View on Amazon</a>
+      </div>
+    </div>
 
   </div>
 </div>
 
 <footer>
-  <p>
-    <strong>Affiliate Disclosure:</strong>
-    As an Amazon Associate, I earn from qualifying purchases.
-  </p>
+  <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases.</p>
 </footer>
 
-</body>
-</html>
+<script>
+function filterProducts(category) {
+  const items = document.querySelectorAll('.product-item');
+  const buttons = document.querySelectorAll('.filter-btn');
+
+  buttons.forEach(btn => btn.classList.remove('active'));
+  event.target.classList.add('active');
+
+  items.forEach(item => {
+    if (category === 'all' || item.classList.contains(category)) {
+      item.cla
+
