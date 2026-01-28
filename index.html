@@ -2,82 +2,89 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Curated Picks | Aesthetic Finds</title>
+<title>cutiepatotie167 | Smart Picks That Matter</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
 :root{
-  --beige:#f5f1eb;
+  --orange:#ff8c00;
+  --orange-dark:#e67e00;
   --white:#ffffff;
-  --dark:#1f2933;
-  --accent:#c9a24d;
-  --shadow:0 18px 45px rgba(0,0,0,0.08);
+  --bg:#f8f8f8;
+  --text:#1f2933;
+  --shadow:0 10px 30px rgba(0,0,0,.08);
 }
 
-*{box-sizing:border-box;}
-
+*{box-sizing:border-box}
 body{
   margin:0;
-  font-family: 'Segoe UI', sans-serif;
-  background:var(--beige);
-  color:var(--dark);
+  font-family:Segoe UI,system-ui,sans-serif;
+  background:var(--bg);
+  color:var(--text);
 }
 
 /* HEADER */
 header{
-  background:var(--white);
-  padding:20px;
+  background:var(--orange);
+  color:#fff;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  gap:20px;
   position:sticky;
   top:0;
-  z-index:10;
-  box-shadow:0 5px 20px rgba(0,0,0,0.05);
-}
-
-.header-inner{
-  max-width:1200px;
-  margin:auto;
-  display:flex;
-  gap:20px;
-  align-items:center;
-  justify-content:space-between;
+  z-index:999;
 }
 
 .logo{
-  font-weight:800;
-  font-size:1.2rem;
+  font-size:1.6rem;
+  font-weight:900;
+  letter-spacing:.5px;
 }
 
 .search{
   flex:1;
+  display:flex;
 }
-
 .search input{
   width:100%;
+  padding:12px;
+  border:none;
+  border-radius:6px 0 0 6px;
+  outline:none;
+}
+.search button{
   padding:12px 16px;
-  border-radius:30px;
-  border:1px solid #ddd;
-  font-size:1rem;
+  border:none;
+  background:#111;
+  color:#fff;
+  border-radius:0 6px 6px 0;
+  cursor:pointer;
+}
+
+.nav{
+  font-size:.9rem;
+  opacity:.95;
 }
 
 /* HERO */
 .hero{
+  padding:50px 20px;
   text-align:center;
-  padding:60px 20px 40px;
+  background:#fff;
 }
-
 .hero h1{
-  font-size:2.4rem;
+  font-size:2.5rem;
 }
-
 .hero p{
-  max-width:650px;
-  margin:10px auto;
-  opacity:0.85;
+  max-width:700px;
+  margin:auto;
+  opacity:.85;
 }
 
-/* GRID */
+/* PRODUCTS */
 .container{
-  max-width:1200px;
+  max-width:1300px;
   margin:auto;
   padding:30px 20px;
 }
@@ -85,84 +92,93 @@ header{
 .products{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:30px;
+  gap:28px;
 }
 
 .card{
-  background:var(--white);
-  border-radius:22px;
-  padding:18px;
+  background:#fff;
+  border-radius:14px;
   box-shadow:var(--shadow);
+  padding:16px;
+  transition:.3s;
   cursor:pointer;
-  transition:0.35s;
 }
-
 .card:hover{
-  transform:translateY(-8px);
+  transform:translateY(-6px);
 }
 
 .card img{
   width:100%;
-  height:200px;
+  height:190px;
   object-fit:contain;
 }
 
 .card h3{
-  margin:15px 0 8px;
   font-size:1.1rem;
+  margin:12px 0 8px;
 }
 
 .card p{
-  font-size:0.9rem;
-  opacity:0.8;
+  font-size:.9rem;
+  opacity:.8;
 }
 
-/* PRODUCT VIEW */
-#productView{
+.card .btn{
+  margin-top:10px;
+  display:inline-block;
+  background:var(--orange);
+  color:#000;
+  padding:10px 14px;
+  border-radius:6px;
+  font-weight:700;
+  text-decoration:none;
+}
+
+/* MODAL */
+.modal{
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,.6);
   display:none;
-  background:var(--white);
-  padding:40px 20px;
+  align-items:center;
+  justify-content:center;
+  z-index:1000;
 }
 
-.product-detail{
-  max-width:1100px;
-  margin:auto;
+.modal-content{
+  background:#fff;
+  width:90%;
+  max-width:900px;
+  border-radius:14px;
+  padding:20px;
+}
+
+.modal-grid{
   display:grid;
   grid-template-columns:1fr 1fr;
-  gap:40px;
+  gap:20px;
 }
 
-.product-detail img{
+.modal img{
   width:100%;
-  border-radius:20px;
+  height:280px;
+  object-fit:contain;
 }
 
-.buy-btn{
-  display:inline-block;
-  margin-top:20px;
-  padding:14px 22px;
-  background:var(--accent);
-  color:#000;
-  text-decoration:none;
-  font-weight:700;
-  border-radius:30px;
+.recommend{
+  margin-top:30px;
 }
-
-/* RELATED */
-.related{
-  margin-top:60px;
-}
-
-.related h2{
-  margin-bottom:20px;
+.recommend h4{
+  margin-bottom:10px;
 }
 
 /* FOOTER */
 footer{
-  text-align:center;
+  background:#fff;
   padding:30px;
-  font-size:0.85rem;
-  opacity:0.7;
+  text-align:center;
+  font-size:.85rem;
+  opacity:.7;
 }
 </style>
 </head>
@@ -170,118 +186,126 @@ footer{
 <body>
 
 <header>
-  <div class="header-inner">
-    <div class="logo">Curated Picks</div>
-    <div class="search">
-      <input type="text" id="searchInput" placeholder="Search products…">
-    </div>
+  <div class="logo">cutiepatotie167</div>
+  <div class="search">
+    <input id="searchInput" placeholder="Search products...">
+    <button>🔍</button>
   </div>
+  <div class="nav">Affiliate Picks</div>
 </header>
 
 <section class="hero">
-  <h1>Aesthetic Products Worth Your Money</h1>
-  <p>Handpicked decor, gifts, and lifestyle finds — curated honestly.</p>
+  <h1>Shop Smart. Buy Better.</h1>
+  <p>Amazon-style discovery with honest affiliate recommendations — minimal, aesthetic, and fast.</p>
 </section>
 
 <div class="container">
-  <div class="products" id="productGrid"></div>
+  <div class="products" id="productList"></div>
 </div>
 
-<!-- PRODUCT VIEW -->
-<section id="productView">
-  <div class="product-detail">
-    <img id="viewImg">
-    <div>
-      <h2 id="viewTitle"></h2>
-      <p id="viewDesc"></p>
-      <a id="viewLink" class="buy-btn" target="_blank" rel="nofollow sponsored">View on Amazon</a>
-    </div>
-  </div>
-
-  <div class="container related">
-    <h2>You may also like</h2>
-    <div class="products" id="relatedProducts"></div>
-  </div>
-</section>
-
 <footer>
-  <strong>Affiliate Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases.
+  As an Amazon Associate, I earn from qualifying purchases.
 </footer>
 
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <div class="modal-grid">
+      <img id="mImg">
+      <div>
+        <h2 id="mTitle"></h2>
+        <p id="mDesc"></p>
+        <a id="mLink" class="btn" target="_blank" rel="nofollow sponsored">View on Amazon</a>
+      </div>
+    </div>
+
+    <div class="recommend">
+      <h4>You may also like</h4>
+      <div class="products" id="recommend"></div>
+    </div>
+  </div>
+</div>
+
 <script>
-const products = [
-  {
-    title:"RGB LED Strip Lights",
-    desc:"Modern RGB LED strip lights for room & desk aesthetics.",
-    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/5254a961-154a-408f-a6e1-880c726a4ce4.png?raw=true",
-    link:"https://amzn.to/45z40iB"
-  },
-  {
-    title:"Wardrobe Organizer",
-    desc:"Smart storage solution for clothes & shelves.",
-    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/8bfb50f5-c82c-4e4d-96e1-a6a2feeb94c3%20organizers.png?raw=true",
-    link:"https://amzn.to/4aev0GN"
-  },
-  {
-    title:"3D Crystal Moon Lamp",
-    desc:"Aesthetic moon lamp for cozy night lighting.",
-    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/showcase%20git.png?raw=true",
-    link:"https://amzn.to/4a6eQy8"
-  },
-  {
-    title:"Personalized Infinity Gift",
-    desc:"Romantic personalized anniversary gift.",
-    img:"https://raw.githubusercontent.com/cutiepatotie167/Cutiepatotie167.github.io/refs/heads/main/d95ac5d1-e466-41d6-8a1a-ff0a9758b1e4.jfif",
-    link:"https://amzn.to/3OaPQ19"
-  },
-  {
-    title:"Inspiring Book",
-    desc:"A thoughtful book that helps express emotions beautifully.",
-    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/book%20git.png?raw=true",
-    link:"https://amzn.to/3Zzvzoy"
-  }
+const products=[
+{
+title:"RGB LED Strip Lights",
+desc:"Modern RGB lighting for desk & room aesthetics.",
+img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/5254a961-154a-408f-a6e1-880c726a4ce4.png?raw=true",
+link:"https://amzn.to/45z40iB"
+},
+{
+title:"Wardrobe Organizer",
+desc:"Smart organizer for shelves and clothes.",
+img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/8bfb50f5-c82c-4e4d-96e1-a6a2feeb94c3%20organizers.png?raw=true",
+link:"https://amzn.to/4aev0GN"
+},
+{
+title:"3D Crystal Moon Lamp",
+desc:"Aesthetic moon lamp with soft glow.",
+img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/showcase%20git.png?raw=true",
+link:"https://amzn.to/4a6eQy8"
+},
+{
+title:"Personalized Infinity Gift",
+desc:"Romantic custom anniversary keepsake.",
+img:"https://raw.githubusercontent.com/cutiepatotie167/Cutiepatotie167.github.io/refs/heads/main/d95ac5d1-e466-41d6-8a1a-ff0a9758b1e4.jfif",
+link:"https://amzn.to/3OaPQ19"
+},
+{
+title:"Love Memory Book",
+desc:"Fill-in book to express love beautifully.",
+img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/book%20git.png?raw=true",
+link:"https://amzn.to/3Zzvzoy"
+}
 ];
 
-const grid = document.getElementById("productGrid");
+const list=document.getElementById("productList");
+const modal=document.getElementById("modal");
 
-function render(list){
-  grid.innerHTML="";
-  list.forEach(p=>{
+function render(arr){
+  list.innerHTML="";
+  arr.forEach(p=>{
+    const d=document.createElement("div");
+    d.className="card";
+    d.innerHTML=`
+      <img src="${p.img}">
+      <h3>${p.title}</h3>
+      <p>${p.desc}</p>
+      <span class="btn">View</span>
+    `;
+    d.onclick=()=>openModal(p);
+    list.appendChild(d);
+  });
+}
+render(products);
+
+function openModal(p){
+  modal.style.display="flex";
+  mImg.src=p.img;
+  mTitle.innerText=p.title;
+  mDesc.innerText=p.desc;
+  mLink.href=p.link;
+
+  recommend.innerHTML="";
+  products.filter(x=>x!==p).slice(0,3).forEach(r=>{
     const c=document.createElement("div");
     c.className="card";
-    c.innerHTML=`<img src="${p.img}"><h3>${p.title}</h3><p>${p.desc}</p>`;
-    c.onclick=()=>openProduct(p);
-    grid.appendChild(c);
+    c.innerHTML=`<img src="${r.img}"><h3>${r.title}</h3>`;
+    c.onclick=()=>openModal(r);
+    recommend.appendChild(c);
   });
 }
 
-function openProduct(p){
-  document.querySelector(".container").style.display="none";
-  document.getElementById("productView").style.display="block";
-  viewImg.src=p.img;
-  viewTitle.innerText=p.title;
-  viewDesc.innerText=p.desc;
-  viewLink.href=p.link;
-
-  relatedProducts.innerHTML="";
-  products.filter(x=>x!==p).forEach(x=>{
-    const r=document.createElement("div");
-    r.className="card";
-    r.innerHTML=`<img src="${x.img}"><h3>${x.title}</h3>`;
-    r.onclick=()=>openProduct(x);
-    relatedProducts.appendChild(r);
-  });
-}
+modal.onclick=e=>{ if(e.target===modal) modal.style.display="none"; }
 
 searchInput.oninput=()=>{
-  const v=searchInput.value.toLowerCase();
-  render(products.filter(p=>p.title.toLowerCase().includes(v)));
+  const q=searchInput.value.toLowerCase();
+  render(products.filter(p=>p.title.toLowerCase().includes(q)));
 };
-
-render(products);
 </script>
 
 </body>
 </html>
+
 
 
