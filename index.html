@@ -2,310 +2,286 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Best Products I Recommend | Honest Picks</title>
-
-<meta name="description" content="Discover handpicked products for study, desk setup, and daily productivity. Honest recommendations with real value.">
-
+<title>Curated Picks | Aesthetic Finds</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-:root {
-  --brand-primary: #ff9900;
-  --brand-dark: #1f2933;
-  --brand-bg: #f4f6f8;
-  --brand-accent: #2563eb;
-  --card-bg: #ffffff;
+:root{
+  --beige:#f5f1eb;
+  --white:#ffffff;
+  --dark:#1f2933;
+  --accent:#c9a24d;
+  --shadow:0 18px 45px rgba(0,0,0,0.08);
 }
 
-* { box-sizing: border-box; }
+*{box-sizing:border-box;}
 
-body {
-  margin: 0;
+body{
+  margin:0;
   font-family: 'Segoe UI', sans-serif;
-  background: var(--brand-bg);
-  color: var(--brand-dark);
+  background:var(--beige);
+  color:var(--dark);
+}
+
+/* HEADER */
+header{
+  background:var(--white);
+  padding:20px;
+  position:sticky;
+  top:0;
+  z-index:10;
+  box-shadow:0 5px 20px rgba(0,0,0,0.05);
+}
+
+.header-inner{
+  max-width:1200px;
+  margin:auto;
+  display:flex;
+  gap:20px;
+  align-items:center;
+  justify-content:space-between;
+}
+
+.logo{
+  font-weight:800;
+  font-size:1.2rem;
+}
+
+.search{
+  flex:1;
+}
+
+.search input{
+  width:100%;
+  padding:12px 16px;
+  border-radius:30px;
+  border:1px solid #ddd;
+  font-size:1rem;
 }
 
 /* HERO */
-.hero {
-  padding: 70px 20px 50px;
-  text-align: center;
+.hero{
+  text-align:center;
+  padding:60px 20px 40px;
 }
 
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 12px;
+.hero h1{
+  font-size:2.4rem;
 }
 
-.hero p {
-  max-width: 650px;
-  margin: auto;
-  font-size: 1.1rem;
-  opacity: 0.85;
+.hero p{
+  max-width:650px;
+  margin:10px auto;
+  opacity:0.85;
 }
 
-/* FILTERS */
-.filters {
-  display: flex;
-  justify-content: center;
-  gap: 12px;
-  flex-wrap: wrap;
-  margin-top: 30px;
+/* GRID */
+.container{
+  max-width:1200px;
+  margin:auto;
+  padding:30px 20px;
 }
 
-.filter-btn {
-  padding: 8px 16px;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  background: #e5e7eb;
-  font-weight: 600;
+.products{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:30px;
 }
 
-.filter-btn.active,
-.filter-btn:hover {
-  background: var(--brand-accent);
-  color: #fff;
+.card{
+  background:var(--white);
+  border-radius:22px;
+  padding:18px;
+  box-shadow:var(--shadow);
+  cursor:pointer;
+  transition:0.35s;
 }
 
-/* CONTAINER */
-.container {
-  max-width: 1200px;
-  margin: auto;
-  padding: 30px 20px;
+.card:hover{
+  transform:translateY(-8px);
 }
 
-/* PRODUCTS */
-.products {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 28px;
+.card img{
+  width:100%;
+  height:200px;
+  object-fit:contain;
 }
 
-/* PRODUCT CARD */
-.product {
-  background: var(--card-bg);
-  border-radius: 18px;
-  padding: 18px;
-  box-shadow: 0 12px 30px rgba(0,0,0,0.08);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+.card h3{
+  margin:15px 0 8px;
+  font-size:1.1rem;
 }
 
-.product:hover {
-  transform: translateY(-6px);
-  box-shadow: 0 20px 45px rgba(0,0,0,0.12);
+.card p{
+  font-size:0.9rem;
+  opacity:0.8;
 }
 
-.product img {
-  width: 100%;
-  height: 200px;
-  object-fit: contain;
-  border-radius: 12px;
+/* PRODUCT VIEW */
+#productView{
+  display:none;
+  background:var(--white);
+  padding:40px 20px;
 }
 
-/* TOP PICK BADGE */
-.badge {
-  position: absolute;
-  background: gold;
-  color: #000;
-  padding: 6px 10px;
-  font-size: 0.8rem;
-  font-weight: 700;
-  border-radius: 6px;
-  margin: 8px;
+.product-detail{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:40px;
 }
 
-.product-wrapper {
-  position: relative;
+.product-detail img{
+  width:100%;
+  border-radius:20px;
 }
 
-.product h2 {
-  font-size: 1.2rem;
-  margin: 15px 0 10px;
+.buy-btn{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 22px;
+  background:var(--accent);
+  color:#000;
+  text-decoration:none;
+  font-weight:700;
+  border-radius:30px;
 }
 
-.product p {
-  font-size: 0.95rem;
-  opacity: 0.85;
+/* RELATED */
+.related{
+  margin-top:60px;
 }
 
-/* BUTTON */
-.btn {
-  display: inline-block;
-  margin-top: 12px;
-  padding: 12px 18px;
-  background: var(--brand-primary);
-  color: #000;
-  text-decoration: none;
-  font-weight: 700;
-  border-radius: 8px;
+.related h2{
+  margin-bottom:20px;
 }
 
 /* FOOTER */
-footer {
-  padding: 30px 20px;
-  text-align: center;
-  font-size: 0.85rem;
-  opacity: 0.75;
+footer{
+  text-align:center;
+  padding:30px;
+  font-size:0.85rem;
+  opacity:0.7;
 }
-
-/* HIDE */
-.hidden { display: none; }
 </style>
 </head>
 
 <body>
 
-<section class="hero">
-  <h1>Handpicked Products That Are Actually Worth It</h1>
-  <p>
-    Study essentials, desk setup tools, and productivity gadgets — curated honestly to save you time and money.
-  </p>
-
-  <div class="filters">
-    <button class="filter-btn active" onclick="filterProducts('all')">All</button>
-    <button class="filter-btn" onclick="filterProducts('desk')">Desk Setup</button>
-    <button class="filter-btn" onclick="filterProducts('study')">Study Essentials</button>
-    <button class="filter-btn" onclick="filterProducts('gadgets')">Gadgets</button>
+<header>
+  <div class="header-inner">
+    <div class="logo">Curated Picks</div>
+    <div class="search">
+      <input type="text" id="searchInput" placeholder="Search products…">
+    </div>
   </div>
+</header>
+
+<section class="hero">
+  <h1>Aesthetic Products Worth Your Money</h1>
+  <p>Handpicked decor, gifts, and lifestyle finds — curated honestly.</p>
 </section>
 
 <div class="container">
-  <div class="products">
-
-    <!-- PRODUCT -->
-    <div class="product-wrapper product-item desk">
-  <div class="badge">Top Pick</div>
-
-  <div class="product">
-    <img src="https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/5254a961-154a-408f-a6e1-880c726a4ce4.png?raw=true" alt="LED Strip Lights for Room Decor">
-
-    <h2>RGB LED Strip Lights for Room & Desk Decor</h2>
-
-    <p>
-      Easy-to-install RGB LED strip lights for bedroom, desk setup, TV background,
-      and ambient home lighting. Perfect for modern room aesthetics.
-    </p>
-
-    <a class="btn"
-       href="https://amzn.to/45z40iB"
-       target="_blank"
-       rel="nofollow sponsored">
-       View on Amazon
-    </a>
-  </div>
+  <div class="products" id="productGrid"></div>
 </div>
 
-
-    <!-- PRODUCT -->
-<div class="product-wrapper product-item storage">
-  <div class="badge">Top Pick</div>
-
-  <div class="product">
-    <img src="https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/8bfb50f5-c82c-4e4d-96e1-a6a2feeb94c3%20organizers.png?raw=true" 
-         alt="DAREV Wardrobe Organizer for Clothes Storage">
-
-    <h2>DAREV Wardrobe Organizer for Clothes & Shelves</h2>
-
-    <p>
-      Smart wardrobe organizer designed to maximize storage space and keep clothes,
-      towels, and accessories neatly arranged. Ideal for wardrobes, shelves,
-      and small spaces.
-    </p>
-
-    <a class="btn"
-       href="https://amzn.to/4aev0GN"
-       target="_blank"
-       rel="nofollow sponsored">
-       View on Amazon
-    </a>
+<!-- PRODUCT VIEW -->
+<section id="productView">
+  <div class="product-detail">
+    <img id="viewImg">
+    <div>
+      <h2 id="viewTitle"></h2>
+      <p id="viewDesc"></p>
+      <a id="viewLink" class="buy-btn" target="_blank" rel="nofollow sponsored">View on Amazon</a>
+    </div>
   </div>
-</div>
 
-
-<div class="product-wrapper product-item gadgets">
-  <div class="badge">Top Pick</div>
-
-  <div class="product">
-    <img src="https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/showcase%20git.png?raw=true" 
-         alt="One94Store 3D Crystal Moon Lamp">
-
-    <h2>One94Store 3D Crystal Moon Lamp</h2>
-
-    <p>
-      3D engraved moon lamp with realistic lunar surface detail — perfect for
-      bedroom ambience, night light decor, gifting, or creating a calming
-      space with soft glow lighting.
-    </p>
-
-    <a class="btn"
-       href="https://amzn.to/4a6eQy8"
-       target="_blank"
-       rel="nofollow sponsored">
-       View on Amazon
-    </a>
+  <div class="container related">
+    <h2>You may also like</h2>
+    <div class="products" id="relatedProducts"></div>
   </div>
-</div>
+</section>
 
-<div class="product-wrapper product-item gifts">
-  <div class="badge">Top Pick</div>
-
-  <div class="product">
-    <img src="https://raw.githubusercontent.com/cutiepatotie167/Cutiepatotie167.github.io/refs/heads/main/d95ac5d1-e466-41d6-8a1a-ff0a9758b1e4.jfif" 
-         alt="AICA Personalized Infinity Marriage Anniversary Gift">
-
-    <h2>AICA Personalized Infinity Marriage Anniversary Gift</h2>
-
-    <p>
-      Elegant personalized infinity gift for anniversaries or romantic milestones.  
-      A meaningful keepsake that celebrates lasting love, perfect for him or her.
-    </p>
-
-    <a class="btn"
-       href="https://amzn.to/3OaPQ19"
-       target="_blank"
-       rel="nofollow sponsored">
-       View on Amazon
-    </a>
-  </div>
-</div>
-
-   <div class="product-wrapper product-item books">
-  <div class="badge">Top Pick</div>
-
-  <div class="product">
-    <img src="https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/book%20git.png?raw=true"
-         alt="Book Product">
-
-    <h2>Inspiring Book – Great Read For Growth</h2>
-
-    <p>
-      A thoughtfully curated book that inspires growth, learning, and personal
-      development. Perfect for readers seeking insight, motivation, and new ideas.
-    </p>
-
-    <a class="btn"
-       href="https://amzn.to/3Zzvzoy"
-       target="_blank"
-       rel="nofollow sponsored">
-       View on Amazon
-    </a>
-  </div>
-</div>
- 
 <footer>
-  <p><strong>Affiliate Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases.</p>
+  <strong>Affiliate Disclosure:</strong> As an Amazon Associate, I earn from qualifying purchases.
 </footer>
 
 <script>
-function filterProducts(category) {
-  const items = document.querySelectorAll('.product-item');
-  const buttons = document.querySelectorAll('.filter-btn');
+const products = [
+  {
+    title:"RGB LED Strip Lights",
+    desc:"Modern RGB LED strip lights for room & desk aesthetics.",
+    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/5254a961-154a-408f-a6e1-880c726a4ce4.png?raw=true",
+    link:"https://amzn.to/45z40iB"
+  },
+  {
+    title:"Wardrobe Organizer",
+    desc:"Smart storage solution for clothes & shelves.",
+    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/8bfb50f5-c82c-4e4d-96e1-a6a2feeb94c3%20organizers.png?raw=true",
+    link:"https://amzn.to/4aev0GN"
+  },
+  {
+    title:"3D Crystal Moon Lamp",
+    desc:"Aesthetic moon lamp for cozy night lighting.",
+    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/showcase%20git.png?raw=true",
+    link:"https://amzn.to/4a6eQy8"
+  },
+  {
+    title:"Personalized Infinity Gift",
+    desc:"Romantic personalized anniversary gift.",
+    img:"https://raw.githubusercontent.com/cutiepatotie167/Cutiepatotie167.github.io/refs/heads/main/d95ac5d1-e466-41d6-8a1a-ff0a9758b1e4.jfif",
+    link:"https://amzn.to/3OaPQ19"
+  },
+  {
+    title:"Inspiring Book",
+    desc:"A thoughtful book that helps express emotions beautifully.",
+    img:"https://github.com/cutiepatotie167/Cutiepatotie167.github.io/blob/main/book%20git.png?raw=true",
+    link:"https://amzn.to/3Zzvzoy"
+  }
+];
 
-  buttons.forEach(btn => btn.classList.remove('active'));
-  event.target.classList.add('active');
+const grid = document.getElementById("productGrid");
 
-  items.forEach(item => {
-    if (category === 'all' || item.classList.contains(category)) {
-      item.cla
+function render(list){
+  grid.innerHTML="";
+  list.forEach(p=>{
+    const c=document.createElement("div");
+    c.className="card";
+    c.innerHTML=`<img src="${p.img}"><h3>${p.title}</h3><p>${p.desc}</p>`;
+    c.onclick=()=>openProduct(p);
+    grid.appendChild(c);
+  });
+}
+
+function openProduct(p){
+  document.querySelector(".container").style.display="none";
+  document.getElementById("productView").style.display="block";
+  viewImg.src=p.img;
+  viewTitle.innerText=p.title;
+  viewDesc.innerText=p.desc;
+  viewLink.href=p.link;
+
+  relatedProducts.innerHTML="";
+  products.filter(x=>x!==p).forEach(x=>{
+    const r=document.createElement("div");
+    r.className="card";
+    r.innerHTML=`<img src="${x.img}"><h3>${x.title}</h3>`;
+    r.onclick=()=>openProduct(x);
+    relatedProducts.appendChild(r);
+  });
+}
+
+searchInput.oninput=()=>{
+  const v=searchInput.value.toLowerCase();
+  render(products.filter(p=>p.title.toLowerCase().includes(v)));
+};
+
+render(products);
+</script>
+
+</body>
+</html>
+
 
